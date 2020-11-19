@@ -10,13 +10,47 @@ func multiply(a, b int) int {
 }
 
 func main() {
-	name := "younhong"
+	// name := "younhong"
 	// fmt.Println(name)
 	// fmt.Println(multiply(5, 7))
 	// repeatMe(name, "yejin", "haeun", "sungjun")
 
-	totalLength, uppercase := lenAndUpper(name)
-	fmt.Println("Length:", totalLength, uppercase)
+	// totalLength, uppercase := lenAndUpper(name)
+	// fmt.Println("Length:", totalLength, uppercase)
+
+	// result := superAdd(1, 2, 3, 4, 5, 6)
+	// fmt.Println(result)
+
+	fmt.Println(canIDrink(16))
+}
+
+func canIDrink(age int) bool {
+	// if koreanAge := age + 2; koreanAge < 20 {
+	// 	return false
+	// }
+	// return true
+	switch {
+	case age < 20:
+		return false
+	case age >= 20:
+		return true
+	}
+	return false
+}
+
+func superAdd(numbers ...int) int {
+	// for index, number := range numbers {
+	// 	fmt.Println(index, number)
+	// }
+	// for i := 0; i < len(numbers); i++ {
+	// 	fmt.Println(numbers[i])
+	// }
+	total := 0
+	for _, number := range numbers {
+		total += number
+	}
+
+	return total
 }
 
 func lenAndUpper(name string) (length int, uppercase string) {
