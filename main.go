@@ -21,7 +21,21 @@ func main() {
 	// result := superAdd(1, 2, 3, 4, 5, 6)
 	// fmt.Println(result)
 
-	fmt.Println(canIDrink(16))
+	// fmt.Println(canIDrink(16))
+
+	// a := 2
+	// b := &a
+	// *b = 20
+	// fmt.Println(a, *b)
+
+	names := [5]string{"younhong", "april", "june"}
+	names[3] = "minsu"
+	names[4] = "yewon"
+	fmt.Println(names)
+
+	names2 := []string{"younhong", "april", "june"}
+	names2 = append(names2, "yewon")
+	fmt.Println(names2)
 }
 
 func canIDrink(age int) bool {
