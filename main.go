@@ -5,28 +5,30 @@ import (
 	"strings"
 )
 
-func multiply(a, b int) int {
-	return a * b
+type person struct {
+	name    string
+	age     int
+	favFood []string
 }
 
 func main() {
-	// name := "younhong"
-	// fmt.Println(name)
-	// fmt.Println(multiply(5, 7))
-	// repeatMe(name, "yejin", "haeun", "sungjun")
+	name := "younhong"
+	fmt.Println(name)
+	fmt.Println(multiply(5, 7))
+	repeatMe(name, "yejin", "haeun", "sungjun")
 
-	// totalLength, uppercase := lenAndUpper(name)
-	// fmt.Println("Length:", totalLength, uppercase)
+	totalLength, uppercase := lenAndUpper(name)
+	fmt.Println("Length:", totalLength, uppercase)
 
-	// result := superAdd(1, 2, 3, 4, 5, 6)
-	// fmt.Println(result)
+	result := superAdd(1, 2, 3, 4, 5, 6)
+	fmt.Println(result)
 
-	// fmt.Println(canIDrink(16))
+	fmt.Println(canIDrink(16))
 
-	// a := 2
-	// b := &a
-	// *b = 20
-	// fmt.Println(a, *b)
+	a := 2
+	b := &a
+	*b = 20
+	fmt.Println(a, *b)
 
 	names := [5]string{"younhong", "april", "june"}
 	names[3] = "minsu"
@@ -36,6 +38,17 @@ func main() {
 	names2 := []string{"younhong", "april", "june"}
 	names2 = append(names2, "yewon")
 	fmt.Println(names2)
+
+	younhong := map[string]string{"name": "younhong", "age": "20"}
+	fmt.Println(younhong["age"])
+	for key, value := range younhong {
+		fmt.Println(key+":", value)
+	}
+
+	favFood := []string{"chicken", "hotdog"}
+	younhong2 := person{
+		name: "younhong", age: 20, favFood: favFood}
+	fmt.Println(younhong2.name, younhong2.favFood[0])
 }
 
 func canIDrink(age int) bool {
@@ -76,4 +89,8 @@ func lenAndUpper(name string) (length int, uppercase string) {
 
 func repeatMe(words ...string) {
 	fmt.Println(words)
+}
+
+func multiply(a, b int) int {
+	return a * b
 }
