@@ -1,47 +1,35 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"net/http"
+	"time"
 )
 
-var errRequestFailed = errors.New("Request Failed")
-
 func main() {
-	var results = make(map[string]string)
-
-	urls := []string{
-		"https://www.airbnb.com/",
-		"https://www.google.com/",
-		"https://www.amazon.com/",
-		"https://www.reddit.com/",
-		"https://www.soundcloud.com/",
-		"https://www.facebook.com/",
-		"https://www.instagram.com/",
-		"https://academy.nomadcoders.co/",
+	c := make(chan string)
+	// go count("younhong")
+	// count("yerin")
+	people := [4]string{"younhong", "yerin", "minki", "yewon"}
+	for _, person := range people {
+		go isCute(person, c)
 	}
-
-	for _, url := range urls {
-		result := "OK"
-		err := hitURL(url)
-		if err != nil {
-			result = "FAILED"
-		}
-		results[url] = result
+	// result := <-c
+	fmt.Println("Waiting for messages")
+	for i := 0; i < len(people); i++ {
+		fmt.Println("Received Message:", <-c)
 	}
-
-	for url, result := range results {
-		fmt.Println(url, result)
-	}
+	// time.Sleep(time.Second * 10)
 }
 
-func hitURL(url string) error {
-	fmt.Println("Checking:", url)
-	res, err := http.Get(url)
-	if err != nil || res.StatusCode >= 400 {
-		return errRequestFailed
-	}
+// func count(person string) {
+// 	for i := 0; i < 10; i++ {
+// 		fmt.Println(person, "is blah-blah", i)
+// 		time.Sleep(time.Second)
+// 	}
+// }
 
-	return nil
+func isCute(person string, c chan string) {
+	// fmt.Println(person)
+	time.Sleep(time.Second * 10)
+	c <- person + " is cute"
 }
