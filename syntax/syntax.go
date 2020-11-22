@@ -11,7 +11,7 @@ type person struct {
 	favFood []string
 }
 
-func main() {
+func Syntax() {
 	name := "younhong"
 	fmt.Println(name)
 	fmt.Println(multiply(5, 7))
